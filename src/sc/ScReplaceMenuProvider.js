@@ -26,7 +26,7 @@ export default class ScReplaceMenuProvider extends ReplaceMenuProvider {
 
         super(bpmnFactory, popupMenu, modeling, moddle,
             bpmnReplace, rules, translate);
-        debugger;
+        
         console.log(replaceOptions.PARTICIPANT);
     }
 

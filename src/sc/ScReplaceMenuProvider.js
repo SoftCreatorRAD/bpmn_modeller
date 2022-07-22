@@ -22,12 +22,12 @@ import ReplaceMenuProvider from 'bpmn-js/lib/features/popup-menu/ReplaceMenuProv
 
 export default class ScReplaceMenuProvider extends ReplaceMenuProvider {
     constructor(bpmnFactory, popupMenu, modeling, moddle,
-        bpmnReplace, rules, translate) {
+        bpmnReplace, rules, translate, bpmnjs) {
 
         super(bpmnFactory, popupMenu, modeling, moddle,
             bpmnReplace, rules, translate);
-        
-        console.log(replaceOptions.PARTICIPANT);
+
+        this._bpmnjs = bpmnjs;
     }
 
     /**
@@ -53,19 +53,22 @@ export default class ScReplaceMenuProvider extends ReplaceMenuProvider {
         var differentType = isDifferentType(element);
 
         if (is(businessObject, 'bpmn:DataObjectReference')) {
-            return this._createEntries(element, replaceOptions.DATA_OBJECT_REFERENCE);
+            let options = this.filterReplaceOptions(replaceOptions.DATA_OBJECT_REFERENCE);
+            return this._createEntries(element, options);
         }
 
         if (is(businessObject, 'bpmn:DataStoreReference') && !is(element.parent, 'bpmn:Collaboration')) {
-            return this._createEntries(element, replaceOptions.DATA_STORE_REFERENCE);
+            let options = this.filterReplaceOptions(replaceOptions.DATA_STORE_REFERENCE);
+            return this._createEntries(element, options);
         }
 
         // start events outside sub processes
         if (is(businessObject, 'bpmn:StartEvent') && !is(businessObject.$parent, 'bpmn:SubProcess')) {
 
             entries = filter(replaceOptions.START_EVENT, differentType);
+            let options = this.filterReplaceOptions(entries);
 
-            return this._createEntries(element, entries);
+            return this._createEntries(element, options);
         }
 
         // expanded/collapsed pools
@@ -74,8 +77,8 @@ export default class ScReplaceMenuProvider extends ReplaceMenuProvider {
             entries = filter(replaceOptions.PARTICIPANT, function (entry) {
                 return isExpanded(element) !== entry.target.isExpanded;
             });
-
-            return this._createEntries(element, entries);
+            let options = this.filterReplaceOptions(entries);
+            return this._createEntries(element, options);
         }
 
         // start events inside event sub processes
@@ -92,16 +95,16 @@ export default class ScReplaceMenuProvider extends ReplaceMenuProvider {
                 return differentType(entry) || !differentType(entry) && !isInterruptingEqual;
 
             });
-
-            return this._createEntries(element, entries);
+            let options = this.filterReplaceOptions(entries);
+            return this._createEntries(element, options);
         }
 
         // start events inside sub processes
         if (is(businessObject, 'bpmn:StartEvent') && !isEventSubProcess(businessObject.$parent)
             && is(businessObject.$parent, 'bpmn:SubProcess')) {
             entries = filter(replaceOptions.START_EVENT_SUB_PROCESS, differentType);
-
-            return this._createEntries(element, entries);
+            let options = this.filterReplaceOptions(entries);
+            return this._createEntries(element, options);
         }
 
         // end events
@@ -117,8 +120,8 @@ export default class ScReplaceMenuProvider extends ReplaceMenuProvider {
 
                 return differentType(entry);
             });
-
-            return this._createEntries(element, entries);
+            let options = this.filterReplaceOptions(entries);
+            return this._createEntries(element, options);
         }
 
         // boundary events
@@ -138,8 +141,8 @@ export default class ScReplaceMenuProvider extends ReplaceMenuProvider {
 
                 return differentType(entry) || !differentType(entry) && !isCancelActivityEqual;
             });
-
-            return this._createEntries(element, entries);
+            let options = this.filterReplaceOptions(entries);
+            return this._createEntries(element, options);
         }
 
         // intermediate events
@@ -147,40 +150,40 @@ export default class ScReplaceMenuProvider extends ReplaceMenuProvider {
             is(businessObject, 'bpmn:IntermediateThrowEvent')) {
 
             entries = filter(replaceOptions.INTERMEDIATE_EVENT, differentType);
-
-            return this._createEntries(element, entries);
+            let options = this.filterReplaceOptions(entries);
+            return this._createEntries(element, options);
         }
 
         // gateways
         if (is(businessObject, 'bpmn:Gateway')) {
 
             entries = filter(replaceOptions.GATEWAY, differentType);
-
-            return this._createEntries(element, entries);
+            let options = this.filterReplaceOptions(entries);
+            return this._createEntries(element, options);
         }
 
         // transactions
         if (is(businessObject, 'bpmn:Transaction')) {
 
             entries = filter(replaceOptions.TRANSACTION, differentType);
-
-            return this._createEntries(element, entries);
+            let options = this.filterReplaceOptions(entries);
+            return this._createEntries(element, options);
         }
 
         // expanded event sub processes
         if (isEventSubProcess(businessObject) && isExpanded(element)) {
 
             entries = filter(replaceOptions.EVENT_SUB_PROCESS, differentType);
-
-            return this._createEntries(element, entries);
+            let options = this.filterReplaceOptions(entries);
+            return this._createEntries(element, options);
         }
 
         // expanded sub processes
         if (is(businessObject, 'bpmn:SubProcess') && isExpanded(element)) {
 
             entries = filter(replaceOptions.SUBPROCESS_EXPANDED, differentType);
-
-            return this._createEntries(element, entries);
+            let options = this.filterReplaceOptions(entries);
+            return this._createEntries(element, options);
         }
 
         // collapsed ad hoc sub processes
@@ -196,13 +199,14 @@ export default class ScReplaceMenuProvider extends ReplaceMenuProvider {
 
                 return isDifferentType(element, target) && (!isTargetSubProcess || isTargetExpanded);
             });
-
-            return this._createEntries(element, entries);
+            let options = this.filterReplaceOptions(entries);
+            return this._createEntries(element, options);
         }
 
         // sequence flows
         if (is(businessObject, 'bpmn:SequenceFlow')) {
-            return this._createSequenceFlowEntries(element, replaceOptions.SEQUENCE_FLOW);
+            let options = this.filterReplaceOptions(replaceOptions.SEQUENCE_FLOW);
+            return this._createSequenceFlowEntries(element, options);
         }
 
         // flow nodes
@@ -215,11 +219,25 @@ export default class ScReplaceMenuProvider extends ReplaceMenuProvider {
                     return entry.label !== 'Sub Process (collapsed)';
                 });
             }
-
-            return this._createEntries(element, entries);
+            let options = this.filterReplaceOptions(entries);
+            return this._createEntries(element, options);
         }
 
         return [];
+    }
+
+    filterReplaceOptions(sourceOptions) {
+        let config = this._bpmnjs.get('config'); 
+        let criteriaArray = config && config.scModule && config.scModule.menu;
+        if (!Array.isArray(sourceOptions)) return sourceOptions;
+        if (!(Array.isArray(criteriaArray)&& criteriaArray.length)) return sourceOptions;
+
+        let filteredOptions = [];         
+
+        filteredOptions = sourceOptions.filter((option) => {
+            return criteriaArray.includes(option.actionName);
+        });
+        return filteredOptions;
     }
 
 }
@@ -231,5 +249,6 @@ ScReplaceMenuProvider.$inject = [
     'moddle',
     'bpmnReplace',
     'rules',
-    'translate'
+    'translate',
+    'bpmnjs'
 ];

@@ -7,14 +7,14 @@ export var START_EVENT = [
         type: 'bpmn:StartEvent'
       }
     },
-    // {
-    //   label: 'Intermediate Throw Event',
-    //   actionName: 'replace-with-none-intermediate-throwing',
-    //   className: 'bpmn-icon-intermediate-event-none',
-    //   target: {
-    //     type: 'bpmn:IntermediateThrowEvent'
-    //   }
-    // },
+    {
+      label: 'Intermediate Throw Event',
+      actionName: 'replace-with-none-intermediate-throwing',
+      className: 'bpmn-icon-intermediate-event-none',
+      target: {
+        type: 'bpmn:IntermediateThrowEvent'
+      }
+    },
     {
       label: 'End Event',
       actionName: 'replace-with-none-end',
@@ -23,15 +23,15 @@ export var START_EVENT = [
         type: 'bpmn:EndEvent'
       }
     },
-    // {
-    //   label: 'Message Start Event',
-    //   actionName: 'replace-with-message-start',
-    //   className: 'bpmn-icon-start-event-message',
-    //   target: {
-    //     type: 'bpmn:StartEvent',
-    //     eventDefinitionType: 'bpmn:MessageEventDefinition'
-    //   }
-    // },
+    {
+      label: 'Message Start Event',
+      actionName: 'replace-with-message-start',
+      className: 'bpmn-icon-start-event-message',
+      target: {
+        type: 'bpmn:StartEvent',
+        eventDefinitionType: 'bpmn:MessageEventDefinition'
+      }
+    },
     {
       label: 'Timer Start Event',
       actionName: 'replace-with-timer-start',
@@ -41,24 +41,24 @@ export var START_EVENT = [
         eventDefinitionType: 'bpmn:TimerEventDefinition'
       }
     },
-    // {
-    //   label: 'Conditional Start Event',
-    //   actionName: 'replace-with-conditional-start',
-    //   className: 'bpmn-icon-start-event-condition',
-    //   target: {
-    //     type: 'bpmn:StartEvent',
-    //     eventDefinitionType: 'bpmn:ConditionalEventDefinition'
-    //   }
-    // },
-    // {
-    //   label: 'Signal Start Event',
-    //   actionName: 'replace-with-signal-start',
-    //   className: 'bpmn-icon-start-event-signal',
-    //   target: {
-    //     type: 'bpmn:StartEvent',
-    //     eventDefinitionType: 'bpmn:SignalEventDefinition'
-    //   }
-    // }
+    {
+      label: 'Conditional Start Event',
+      actionName: 'replace-with-conditional-start',
+      className: 'bpmn-icon-start-event-condition',
+      target: {
+        type: 'bpmn:StartEvent',
+        eventDefinitionType: 'bpmn:ConditionalEventDefinition'
+      }
+    },
+    {
+      label: 'Signal Start Event',
+      actionName: 'replace-with-signal-start',
+      className: 'bpmn-icon-start-event-signal',
+      target: {
+        type: 'bpmn:StartEvent',
+        eventDefinitionType: 'bpmn:SignalEventDefinition'
+      }
+    }
   ];
   
   export var START_EVENT_SUB_PROCESS = [
@@ -70,14 +70,14 @@ export var START_EVENT = [
         type: 'bpmn:StartEvent'
       }
     },
-    // {
-    //   label: 'Intermediate Throw Event',
-    //   actionName: 'replace-with-none-intermediate-throwing',
-    //   className: 'bpmn-icon-intermediate-event-none',
-    //   target: {
-    //     type: 'bpmn:IntermediateThrowEvent'
-    //   }
-    // },
+    {
+      label: 'Intermediate Throw Event',
+      actionName: 'replace-with-none-intermediate-throwing',
+      className: 'bpmn-icon-intermediate-event-none',
+      target: {
+        type: 'bpmn:IntermediateThrowEvent'
+      }
+    },
     {
       label: 'End Event',
       actionName: 'replace-with-none-end',
@@ -220,14 +220,14 @@ export var START_EVENT = [
         type: 'bpmn:StartEvent'
       }
     },
-    // {
-    //   label: 'Intermediate Throw Event',
-    //   actionName: 'replace-with-none-intermediate-throw',
-    //   className: 'bpmn-icon-intermediate-event-none',
-    //   target: {
-    //     type: 'bpmn:IntermediateThrowEvent'
-    //   }
-    // },
+    {
+      label: 'Intermediate Throw Event',
+      actionName: 'replace-with-none-intermediate-throw',
+      className: 'bpmn-icon-intermediate-event-none',
+      target: {
+        type: 'bpmn:IntermediateThrowEvent'
+      }
+    },
     {
       label: 'End Event',
       actionName: 'replace-with-none-end',
@@ -236,69 +236,69 @@ export var START_EVENT = [
         type: 'bpmn:EndEvent'
       }
     },
-    // {
-    //   label: 'Message End Event',
-    //   actionName: 'replace-with-message-end',
-    //   className: 'bpmn-icon-end-event-message',
-    //   target: {
-    //     type: 'bpmn:EndEvent',
-    //     eventDefinitionType: 'bpmn:MessageEventDefinition'
-    //   }
-    // },
-    // {
-    //   label: 'Escalation End Event',
-    //   actionName: 'replace-with-escalation-end',
-    //   className: 'bpmn-icon-end-event-escalation',
-    //   target: {
-    //     type: 'bpmn:EndEvent',
-    //     eventDefinitionType: 'bpmn:EscalationEventDefinition'
-    //   }
-    // },
-    // {
-    //   label: 'Error End Event',
-    //   actionName: 'replace-with-error-end',
-    //   className: 'bpmn-icon-end-event-error',
-    //   target: {
-    //     type: 'bpmn:EndEvent',
-    //     eventDefinitionType: 'bpmn:ErrorEventDefinition'
-    //   }
-    // },
-    // {
-    //   label: 'Cancel End Event',
-    //   actionName: 'replace-with-cancel-end',
-    //   className: 'bpmn-icon-end-event-cancel',
-    //   target: {
-    //     type: 'bpmn:EndEvent',
-    //     eventDefinitionType: 'bpmn:CancelEventDefinition'
-    //   }
-    // },
-    // {
-    //   label: 'Compensation End Event',
-    //   actionName: 'replace-with-compensation-end',
-    //   className: 'bpmn-icon-end-event-compensation',
-    //   target: {
-    //     type: 'bpmn:EndEvent',
-    //     eventDefinitionType: 'bpmn:CompensateEventDefinition'
-    //   }
-    // },
-    // {
-    //   label: 'Signal End Event',
-    //   actionName: 'replace-with-signal-end',
-    //   className: 'bpmn-icon-end-event-signal',
-    //   target: {
-    //     type: 'bpmn:EndEvent',
-    //     eventDefinitionType: 'bpmn:SignalEventDefinition'
-    //   }
-    // },
-    // {
-    //   label: 'Terminate End Event',
-    //   actionName: 'replace-with-terminate-end',
-    //   className: 'bpmn-icon-end-event-terminate',
-    //   target: {
-    //     type: 'bpmn:EndEvent',
-    //     eventDefinitionType: 'bpmn:TerminateEventDefinition'
-    //   }
-    // }
+    {
+      label: 'Message End Event',
+      actionName: 'replace-with-message-end',
+      className: 'bpmn-icon-end-event-message',
+      target: {
+        type: 'bpmn:EndEvent',
+        eventDefinitionType: 'bpmn:MessageEventDefinition'
+      }
+    },
+    {
+      label: 'Escalation End Event',
+      actionName: 'replace-with-escalation-end',
+      className: 'bpmn-icon-end-event-escalation',
+      target: {
+        type: 'bpmn:EndEvent',
+        eventDefinitionType: 'bpmn:EscalationEventDefinition'
+      }
+    },
+    {
+      label: 'Error End Event',
+      actionName: 'replace-with-error-end',
+      className: 'bpmn-icon-end-event-error',
+      target: {
+        type: 'bpmn:EndEvent',
+        eventDefinitionType: 'bpmn:ErrorEventDefinition'
+      }
+    },
+    {
+      label: 'Cancel End Event',
+      actionName: 'replace-with-cancel-end',
+      className: 'bpmn-icon-end-event-cancel',
+      target: {
+        type: 'bpmn:EndEvent',
+        eventDefinitionType: 'bpmn:CancelEventDefinition'
+      }
+    },
+    {
+      label: 'Compensation End Event',
+      actionName: 'replace-with-compensation-end',
+      className: 'bpmn-icon-end-event-compensation',
+      target: {
+        type: 'bpmn:EndEvent',
+        eventDefinitionType: 'bpmn:CompensateEventDefinition'
+      }
+    },
+    {
+      label: 'Signal End Event',
+      actionName: 'replace-with-signal-end',
+      className: 'bpmn-icon-end-event-signal',
+      target: {
+        type: 'bpmn:EndEvent',
+        eventDefinitionType: 'bpmn:SignalEventDefinition'
+      }
+    },
+    {
+      label: 'Terminate End Event',
+      actionName: 'replace-with-terminate-end',
+      className: 'bpmn-icon-end-event-terminate',
+      target: {
+        type: 'bpmn:EndEvent',
+        eventDefinitionType: 'bpmn:TerminateEventDefinition'
+      }
+    }
   ];
   
   export var GATEWAY = [
@@ -310,14 +310,14 @@ export var START_EVENT = [
         type: 'bpmn:ExclusiveGateway'
       }
     },
-    // {
-    //   label: 'Parallel Gateway',
-    //   actionName: 'replace-with-parallel-gateway',
-    //   className: 'bpmn-icon-gateway-parallel',
-    //   target: {
-    //     type: 'bpmn:ParallelGateway'
-    //   }
-    // },
+    {
+      label: 'Parallel Gateway',
+      actionName: 'replace-with-parallel-gateway',
+      className: 'bpmn-icon-gateway-parallel',
+      target: {
+        type: 'bpmn:ParallelGateway'
+      }
+    },
     {
       label: 'Inclusive Gateway',
       actionName: 'replace-with-inclusive-gateway',
@@ -326,24 +326,24 @@ export var START_EVENT = [
         type: 'bpmn:InclusiveGateway'
       }
     },
-    // {
-    //   label: 'Complex Gateway',
-    //   actionName: 'replace-with-complex-gateway',
-    //   className: 'bpmn-icon-gateway-complex',
-    //   target: {
-    //     type: 'bpmn:ComplexGateway'
-    //   }
-    // },
-    // {
-    //   label: 'Event based Gateway',
-    //   actionName: 'replace-with-event-based-gateway',
-    //   className: 'bpmn-icon-gateway-eventbased',
-    //   target: {
-    //     type: 'bpmn:EventBasedGateway',
-    //     instantiate: false,
-    //     eventGatewayType: 'Exclusive'
-    //   }
-    // }
+    {
+      label: 'Complex Gateway',
+      actionName: 'replace-with-complex-gateway',
+      className: 'bpmn-icon-gateway-complex',
+      target: {
+        type: 'bpmn:ComplexGateway'
+      }
+    },
+    {
+      label: 'Event based Gateway',
+      actionName: 'replace-with-event-based-gateway',
+      className: 'bpmn-icon-gateway-eventbased',
+      target: {
+        type: 'bpmn:EventBasedGateway',
+        instantiate: false,
+        eventGatewayType: 'Exclusive'
+      }
+    }
   
     // Gateways deactivated until https://github.com/bpmn-io/bpmn-js/issues/194
     // {
@@ -453,22 +453,22 @@ export var START_EVENT = [
         type: 'bpmn:Task'
       }
     },
-    // {
-    //   label: 'Send Task',
-    //   actionName: 'replace-with-send-task',
-    //   className: 'bpmn-icon-send',
-    //   target: {
-    //     type: 'bpmn:SendTask'
-    //   }
-    // },
-    // {
-    //   label: 'Receive Task',
-    //   actionName: 'replace-with-receive-task',
-    //   className: 'bpmn-icon-receive',
-    //   target: {
-    //     type: 'bpmn:ReceiveTask'
-    //   }
-    // },
+    {
+      label: 'Send Task',
+      actionName: 'replace-with-send-task',
+      className: 'bpmn-icon-send',
+      target: {
+        type: 'bpmn:SendTask'
+      }
+    },
+    {
+      label: 'Receive Task',
+      actionName: 'replace-with-receive-task',
+      className: 'bpmn-icon-receive',
+      target: {
+        type: 'bpmn:ReceiveTask'
+      }
+    },
     {
       label: 'User Task',
       actionName: 'replace-with-user-task',
@@ -477,30 +477,30 @@ export var START_EVENT = [
         type: 'bpmn:UserTask'
       }
     },
-    // {
-    //   label: 'Manual Task',
-    //   actionName: 'replace-with-manual-task',
-    //   className: 'bpmn-icon-manual',
-    //   target: {
-    //     type: 'bpmn:ManualTask'
-    //   }
-    // },
-    // {
-    //   label: 'Business Rule Task',
-    //   actionName: 'replace-with-rule-task',
-    //   className: 'bpmn-icon-business-rule',
-    //   target: {
-    //     type: 'bpmn:BusinessRuleTask'
-    //   }
-    // },
-    // {
-    //   label: 'Service Task',
-    //   actionName: 'replace-with-service-task',
-    //   className: 'bpmn-icon-service',
-    //   target: {
-    //     type: 'bpmn:ServiceTask'
-    //   }
-    // },
+    {
+      label: 'Manual Task',
+      actionName: 'replace-with-manual-task',
+      className: 'bpmn-icon-manual',
+      target: {
+        type: 'bpmn:ManualTask'
+      }
+    },
+    {
+      label: 'Business Rule Task',
+      actionName: 'replace-with-rule-task',
+      className: 'bpmn-icon-business-rule',
+      target: {
+        type: 'bpmn:BusinessRuleTask'
+      }
+    },
+    {
+      label: 'Service Task',
+      actionName: 'replace-with-service-task',
+      className: 'bpmn-icon-service',
+      target: {
+        type: 'bpmn:ServiceTask'
+      }
+    },
     {
       label: 'Script Task',
       actionName: 'replace-with-script-task',
@@ -517,24 +517,24 @@ export var START_EVENT = [
         type: 'bpmn:CallActivity'
       }
     },
-    // {
-    //   label: 'Sub Process (collapsed)',
-    //   actionName: 'replace-with-collapsed-subprocess',
-    //   className: 'bpmn-icon-subprocess-collapsed',
-    //   target: {
-    //     type: 'bpmn:SubProcess',
-    //     isExpanded: false
-    //   }
-    // },
-    // {
-    //   label: 'Sub Process (expanded)',
-    //   actionName: 'replace-with-expanded-subprocess',
-    //   className: 'bpmn-icon-subprocess-expanded',
-    //   target: {
-    //     type: 'bpmn:SubProcess',
-    //     isExpanded: true
-    //   }
-    // }
+    {
+      label: 'Sub Process (collapsed)',
+      actionName: 'replace-with-collapsed-subprocess',
+      className: 'bpmn-icon-subprocess-collapsed',
+      target: {
+        type: 'bpmn:SubProcess',
+        isExpanded: false
+      }
+    },
+    {
+      label: 'Sub Process (expanded)',
+      actionName: 'replace-with-expanded-subprocess',
+      className: 'bpmn-icon-subprocess-expanded',
+      target: {
+        type: 'bpmn:SubProcess',
+        isExpanded: true
+      }
+    }
   ];
   
   export var DATA_OBJECT_REFERENCE = [

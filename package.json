@@ -5,9 +5,9 @@
   "main": "src/app.js",
   "scripts": {
     "all": "run-s bundle open",
-    "bundle": "webpack",
+    "bundle": "webpack --config webpack.config.js",
     "bundle:watch": "webpack -w",
-    "open": "opn ./public/index.html",    
+    "open": "opn ./public/index.html",
     "build": "webpack --mode production",
     "dev": "webpack-dev-server --content-base=public --open",
     "lint": "eslint .",
@@ -33,15 +33,16 @@
   "license": "MIT",
   "devDependencies": {
     "copy-webpack-plugin": "^6.4.1",
+    "eslint": "^5.0.1",
+    "eslint-plugin-bpmn-io": "^0.5.3",
     "npm-run-all": "^4.1.2",
     "opn-cli": "^3.1.0",
     "raw-loader": "^0.5.1",
-    "eslint": "^5.0.1",
-    "eslint-plugin-bpmn-io": "^0.5.3",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.14"
+    "webpack-dev-server": "^3.1.14",
+    "resolve-cwd": "^3.0.0"
   },
   "dependencies": {
     "bpmn-js": "^9.3.1",

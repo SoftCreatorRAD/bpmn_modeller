@@ -4,6 +4,8 @@ import BpmnModdle from 'bpmn-moddle';
 import { diff } from 'bpmn-js-differ';
 import camundaExtensionModule from './camunda/lib';
 import camundaModdle from './camunda/camunda.json';
+import BpmnViewer from 'bpmn-js/lib/NavigatedViewer';
+import * as minDash from "min-dash";
 
 import ScModule from './sc';
 
@@ -17,6 +19,25 @@ window.bpmn.diff = diff;
 window.bpmn.ScModule = ScModule;
 window.bpmn.camundaExtensionModule = camundaExtensionModule;
 window.bpmn.camundaModdle = camundaModdle;
+window.bpmn.BpmnViewer = BpmnViewer;
+window.bpmn.minDash = minDash;
+
+
+// import oldDiagram from '../resources/samples/old.bpmn';
+// import newDiagram from '../resources/samples/new.bpmn';
+
+// import './diff/bpmn-diff.js';
+// //import './diff/diff-ui.js';
+
+// //window.bpmn.diffui.loadDiagrams("", "");
+// // window.bpmn.diffui.loadDiagrams("", newDiagram);
+// //window.bpmn.diffui.loadDiagrams(oldDiagram, newDiagram);
+
+// setTimeout(() => {
+//     debugger
+//     window.bpmn.diffui.loadDiagram("left", newDiagram );
+//     window.bpmn.diffui.loadDiagram("right", oldDiagram );
+// }, 3000)
 
 
 // const containerEl = document.getElementById('container');
